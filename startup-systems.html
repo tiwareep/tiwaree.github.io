@@ -30,6 +30,7 @@
     <![endif]-->
 
 </head>
+<script src="vendor/jquery/jquery.min.js"></script>
 
 <body id="page-top" class="index">
 
@@ -105,13 +106,12 @@
         </div>
     </header>
 
-    <!-- About Section -->
     <section class="porfolio" id="about">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>About Me</h2>
-                    <hr class="star-light">
+                    <hr class="star-primary">
                 </div>
             </div>
             <div class="row">
@@ -126,6 +126,21 @@
                         <i class="fa fa-download"></i> Download Theme
                     </a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="success" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Places I have lived</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">
+                <div id="map" style="width:100%;height:500px"></div>
             </div>
         </div>
     </section>
@@ -407,6 +422,42 @@
       ga('send', 'pageview');
 
     </script>
+    <script>
+    function myMap() {
+      var mapCanvas = document.getElementById("map");
+      var mapOptions = {
+        center: new google.maps.LatLng(51.508742,-0.120850),
+        zoom: 2
+      };
+      var map = new google.maps.Map(mapCanvas, mapOptions);
+      var bangkokMarker = new google.maps.Marker({
+      position: new google.maps.LatLng(13.7563, 100.5018),
+      title:"Bangkok"
+    });
+      var kathmanduMarker = new google.maps.Marker({
+      position: new google.maps.LatLng(27.7172, 85.3240),
+      title:"Kathmandu"
+    });
+      var fukuokaMarker = new google.maps.Marker({
+      position: new google.maps.LatLng(33.5904, 130.4017),
+      //title:"Fukuoka"
+    });
+       var iowaMarker = new google.maps.Marker({
+       position: new google.maps.LatLng(41.8780, -93.0977),
+       title:"Iowa"
+     });
+       var nycMarker = new google.maps.Marker({
+       position: new google.maps.LatLng(40.7128, -74.0059),
+       title:"NYC"
+     });
+      bangkokMarker.setMap(map);
+      kathmanduMarker.setMap(map);
+      fukuokaMarker.setMap(map);
+      iowaMarker.setMap(map);
+      nycMarker.setMap(map);
+    }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
 
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -423,6 +474,8 @@
 
     <!-- Theme JavaScript -->
     <script src="js/freelancer.min.js"></script>
+     <!-- API -->
+    <script src="js/api.js"></script>
 
 </body>
 
